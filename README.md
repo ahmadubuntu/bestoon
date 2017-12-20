@@ -3,6 +3,7 @@
 
 ## ToDo
 [] I need to bestoonconfig.sh with a sample input.
+
 [] writting TOASTs for the android app
 
 ## IONIC info
