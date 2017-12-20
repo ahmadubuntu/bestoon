@@ -9,6 +9,11 @@
     output: status:ok
 
 
+/accounts/login/
+    POST, return a json
+    input: username, password
+    output: status:pk & token
+
 /accounts/register/
     step1:
       POST
