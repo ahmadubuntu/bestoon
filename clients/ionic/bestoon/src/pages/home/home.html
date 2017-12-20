@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="home">
+  <h2>Welcome to Bestoon!</h2>
+   <p>
+         <button ion-button item-right (click)="generalStat.login()">Button provider</button>
+         <button ion-button item-right (click)="this.gst()">Button home functio</button>
+  </p>
+
+
+  <ion-grid *ngIf="weather">
+  <!--ion-grid -->
+      <ion-row>
+          <ion-col width-50 offset-25>
+          </ion-col>
+          <ion-col class="thcol">
+              دفعات
+          </ion-col>
+          <ion-col class="thcol">جمع</ion-col>
+      </ion-row>
+
+      <ion-row>
+          <ion-col width-50 offset-25 class="throw">
+              درآمد
+          </ion-col>
+          <ion-col>
+              {{weather.income.amount__count|json}}
+          </ion-col>
+          <ion-col>
+              {{weather.income.amount__sum|json}}
+          </ion-col>
+      </ion-row>
+
+      <ion-row>
+          <ion-col width-50 offset-25 class="throw">
+              هزینه
+          </ion-col>
+          <ion-col>
+              {{ weather.expense.amount__count|json }}
+          </ion-col>
+          <ion-col>
+              {{weather.expense.amount__sum|json}}
+              </ion-col>
+      </ion-row>
+  </ion-grid>
+
+
+
+</ion-content>

@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Income
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<p>My name is Khodam</p>
+<p>I am blackboard</p>
+<p>because nayumadio hartam tarak khord</p>
+
+
+<ion-card>
+  <ion-card-header>
+    Card Header
+  </ion-card-header>
+  <ion-card-content>
+    Hello World
+  </ion-card-content>
+</ion-card>
+
+
+
+<form class="" (ng-submit)="submitincm()" ng-controller="">
+    <ion-item>
+        <ion-label fixed >
+            درآمد(تومان)
+        </ion-label>
+        <ion-input required [(ngModel)]="incomemoney" name="incomemoney" type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label fixed >
+            موضوع درآمد
+        </ion-label>
+        <ion-input required [(ngModel)]="incometitle" name="incometitle" type="text"></ion-input>
+    </ion-item>
+    <button ion-button item-right (click)="submit()" type="button" name="button">
+        ثبت
+    </button>
+</form>
+
+</ion-content>

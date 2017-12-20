@@ -1,0 +1,22 @@
+{
+  "name": "bestoon",
+  "app_id": "7d512483",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+},
+"proxies": [
+    {
+        "path": "/q/generalstat/",
+        "proxyUrl": "http://ahmadubuntu.pythonanywhere.com/q/generalstat/"
+    },
+    {
+        "path": "/submit/expense/",
+        "proxyUrl": "http://ahmadubuntu.pythonanywhere.com/submit/expense/"
+    },
+    {
+        "path": "/submit/income/",
+        "proxyUrl": "http://ahmadubuntu.pythonanywhere.com/submit/income/"
+    }
+]
+}

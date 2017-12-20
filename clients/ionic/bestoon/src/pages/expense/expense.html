@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Expense</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<form class="" (ng-submit)="submitexpn()" ng-controller="">
+    <ion-item>
+        <ion-label fixed >
+            هزینه(تومان)
+        </ion-label>
+        <ion-input required [(ngModel)]="expnmoney" name="expnmoney" type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label fixed >
+            موضوع هزینه
+        </ion-label>
+        <ion-input required [(ngModel)]="expntitle" name="expntitle" type="text"></ion-input>
+    </ion-item>
+    <button ion-button item-right (click)="submit()" type="button" name="button">
+        ثبت
+    </button>
+</form>
+
+
+</ion-content>
