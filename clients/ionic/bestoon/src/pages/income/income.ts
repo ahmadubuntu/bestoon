@@ -7,6 +7,7 @@ import { Injectable,  ErrorHandler } from '@angular/core';
 import { GeneralstatProvider } from '../../providers/generalstat/generalstat';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
+import { ToastController } from 'ionic-angular';
 
 @Component({
   selector: 'page-income',
@@ -22,13 +23,18 @@ export class IncomePage {
       private generalStat:GeneralstatProvider,
       private formBuilder: FormBuilder,
       private http: Http,
-      public handleError: ErrorHandler
+      public handleError: ErrorHandler,
+      public toastCtrl: ToastController
       ) {
 
 
       this.submit = function(){
-          console.log(this.incometitle);
-          this.generalStat.setIncome(this.incomemoney,this.incometitle)
+            //console.log(this.incometitle);
+            this.generalStat.setIncome(this.incomemoney,this.incometitle)
+                .then(res => {this.incomemoney= null;
+                        this.incometitle=null;
+                })
+            if (this.submit){this.presentToast();this.incomemoney=null;this.incometitle=''}
           /*
           .subscribe(sts => { this.expnmoney=0; this.expntitle=''; console.log(sts);
                                   // show a TOAST
@@ -43,5 +49,20 @@ export class IncomePage {
 
 
   }
+//end of constructor
+
+
+
+
+presentToast() {
+  let toast = this.toastCtrl.create({
+    message: 'درآمد به درستی اضافه شد',
+    duration: 3000,
+    position: 'top'
+  });
+  toast.present();
+}
+
+
 
 }

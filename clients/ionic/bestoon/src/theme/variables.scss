@@ -38,7 +38,7 @@ $colors: (
   secondary:  #435d8c,//#32db64,
   danger:     #f53d3d,
   light:      #ffffff,//#f4f4f4,
-  dark:       #222
+  dark:       #222,
 );
 
 
@@ -103,3 +103,8 @@ $tabs-md-tab-text-color: color($colors, light);
 
 $list-md-background-color: color($colors, secondary);
 $list-md-text-color: color($colors, light);
+
+
+//$font-family-md-base: "Vazir";
+//$font-family-ios-base: "Vazir";
+//$font-family-wp-base: "Vazir";

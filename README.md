@@ -2,9 +2,11 @@
 
 
 ## ToDo
-[] I need to bestoonconfig.sh with a sample input.
-
-[] writting TOASTs for the android app
+-[ ] I need to bestoonconfig.sh with a sample input.
+-[x] writting TOASTs for the android app
+-[ ] expand error message on the server side and handle token unvalidation in client
+-[ ] remove Tabs and use
+-[ ] create APK!
 
 ## IONIC info
 - ionic 3.19.0

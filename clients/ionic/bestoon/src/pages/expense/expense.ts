@@ -7,6 +7,7 @@ import { Injectable,  ErrorHandler } from '@angular/core';
 import { GeneralstatProvider } from '../../providers/generalstat/generalstat';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
+import { ToastController } from 'ionic-angular';
 
 @Component({
   selector: 'page-expense',
@@ -18,20 +19,25 @@ export class ExpensePage {
       expntitle:string;
       private submit:any
 
-  constructor(public navCtrl: NavController,
+  constructor( public navCtrl: NavController,
                 private generalStat:GeneralstatProvider,
                 private formBuilder: FormBuilder,
                 private http: Http,
-                public handleError: ErrorHandler) {
-
+                public handleError: ErrorHandler,
+                public toastCtrl: ToastController
+            ) {
+/*
         this.credentialsForm = this.formBuilder.group({
             email: [''],
             password: ['']
         });
+*/
 
         this.submit = function(){
             console.log(this.expntitle);
             this.generalStat.setExpense(this.expnmoney,this.expntitle)
+            if (this.submit){this.presentToast();this.expnmoney=null;this.expntitle=''}
+
             /*
             .subscribe(sts => { this.expnmoney=0; this.expntitle=''; console.log(sts);
                                     // show a TOAST
@@ -57,5 +63,19 @@ ionViewWillEnter(){
     })
 }
 */
+
+
+
+presentToast() {
+  let toast = this.toastCtrl.create({
+    message: 'Expense was added successfully',
+    duration: 3000,
+    position: 'top'
+  });
+  toast.present();
+}
+
+
+
 
 }

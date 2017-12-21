@@ -1,15 +1,15 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Income
+      ثبت درآمد
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-<p>My name is Khodam</p>
-<p>I am blackboard</p>
-<p>because nayumadio hartam tarak khord</p>
+<p dir="rtl">
+    در این قسمت درآمدهای کسب شده در گذشته اضافه میشود.
+</p>
 
 
 <ion-card>
@@ -24,13 +24,13 @@
 
 
 <form class="" (ng-submit)="submitincm()" ng-controller="">
-    <ion-item>
+    <ion-item dir="rtl">
         <ion-label fixed >
             درآمد(تومان)
         </ion-label>
         <ion-input required [(ngModel)]="incomemoney" name="incomemoney" type="number"></ion-input>
     </ion-item>
-    <ion-item>
+    <ion-item dir="rtl">
         <ion-label fixed >
             موضوع درآمد
         </ion-label>

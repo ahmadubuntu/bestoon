@@ -17,6 +17,10 @@
     {
         "path": "/submit/income/",
         "proxyUrl": "http://ahmadubuntu.pythonanywhere.com/submit/income/"
+    },
+    {
+        "path": "/accounts/login/",
+        "proxyUrl": "http://ahmadubuntu.pythonanywhere.com/accounts/login/"
     }
 ]
 }

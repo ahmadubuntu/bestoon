@@ -1,18 +1,26 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>
+        نمای کلی
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding class="home">
   <h2>Welcome to Bestoon!</h2>
    <p>
-         <button ion-button item-right (click)="generalStat.login()">Button provider</button>
-         <button ion-button item-right (click)="this.gst()">Button home functio</button>
+         <!--button ion-button item-right (click)="generalStat.login()">Button provider</button-->
+         <!--button ion-button item-right (click)="this.gst()">Button home functio</button-->
   </p>
 
+  <ion-item>
+      <ion-label floating >
+          token
+      </ion-label>
+      <ion-input [(ngModel)]="token" name="token" type="text"></ion-input>
+  </ion-item>
 
-  <ion-grid *ngIf="weather">
+  <ion-grid *ngIf="weather" dir="rtl">
   <!--ion-grid -->
       <ion-row>
           <ion-col width-50 offset-25>
@@ -49,5 +57,19 @@
   </ion-grid>
 
 
+
+
+
+
+
+    <ion-fab left bottom>
+      <button ion-fab color="danger"><ion-icon name="arrow-dropup"></ion-icon></button>
+      <ion-fab-list side="top">
+        <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+        <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+        <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
+        <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+      </ion-fab-list>
+    </ion-fab>
 
 </ion-content>

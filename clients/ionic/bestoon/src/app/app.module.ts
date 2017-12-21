@@ -6,8 +6,11 @@ import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http';
 //import { HttpClient, HttpHeaders, RequestOptions } from '@angular/common/http'
 //import { Http, Response } from '@angular/http';
+import { IonicStorageModule } from '@ionic/storage';
+
 
 import { ContactPage } from '../pages/contact/contact';
+import { SettingsPage }from '../pages/settings/settings';
 import { IncomePage } from '../pages/income/income';
 import { ExpensePage } from '../pages/expense/expense';
 import { HomePage } from '../pages/home/home';
@@ -21,6 +24,7 @@ import { GeneralstatProvider } from '../providers/generalstat/generalstat';
   declarations: [
     MyApp,
     ContactPage,
+    SettingsPage,
     IncomePage,
     ExpensePage,
     HomePage,
@@ -36,12 +40,14 @@ import { GeneralstatProvider } from '../providers/generalstat/generalstat';
 //    HttpClient,
 //    HttpHeaders,
 //    RequestOptions,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     ContactPage,
+    SettingsPage,
     IncomePage,
     ExpensePage,
     HomePage,

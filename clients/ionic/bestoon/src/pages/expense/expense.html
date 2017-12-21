@@ -1,19 +1,21 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Expense</ion-title>
+    <ion-title>
+        ثبت خرج
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
 <form class="" (ng-submit)="submitexpn()" ng-controller="">
-    <ion-item>
+    <ion-item dir="rtl">
         <ion-label fixed >
             هزینه(تومان)
         </ion-label>
         <ion-input required [(ngModel)]="expnmoney" name="expnmoney" type="number"></ion-input>
     </ion-item>
-    <ion-item>
+    <ion-item dir="rtl">
         <ion-label fixed >
             موضوع هزینه
         </ion-label>

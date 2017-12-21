@@ -1,0 +1,108 @@
+<!--
+  Generated template for the SettingsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>تنظیمات</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <button ion-button item-right round color="danger" (click)="submitlogout()" type="button" name="button" *ngIf="loggedin">
+        ورود
+    </button>
+
+    <ion-card *ngIf="!loggedin" dir="rtl">
+      <ion-card-header>
+        توجه
+      </ion-card-header>
+      <ion-card-content>
+          <ion-list>
+            <ion-item>
+                در صورت که حساب کاربری ندارید میتوانید با مراجعه به سایت
+                <br>
+                <a href="http://ahmadubuntu.pythonanywhere.com">http://ahmadubuntu.pythonanywhere.com</a>
+                <br>
+                یک حساب برای خود ایجاد کنید.
+            </ion-item>
+          </ion-list>
+
+      </ion-card-content>
+    </ion-card>
+<!--heroForm.reset()-->
+    <form class="" (ng-submit)="submitincm()" ng-controller="" *ngIf="!loggedin">
+        <ion-item dir="rtl">
+            <ion-label floating >
+                نام کاربری
+            </ion-label>
+            <ion-input placeholder='' required [(ngModel)]="username" name="username" type="text"></ion-input>
+        </ion-item>
+        <ion-item dir="rtl">
+            <ion-label floating >
+                کلمه عبور
+            </ion-label>
+            <ion-input placeholder="" clearOnEdit required [(ngModel)]="password" name="password" type="text"></ion-input>
+        </ion-item>
+        <button ion-button item-right round (click)="submitlogin()" type="submit" name="button">
+            ورود
+        </button>
+    </form>
+
+    <hr>
+    <button ion-button item-right round color="danger" (click)="submitlogout()" type="button" name="button" *ngIf="loggedin">
+        خروج
+    </button>
+
+
+
+
+
+
+<form class="" action="index.html" method="post">
+
+    <ion-item>
+        <ion-label floating >
+            name
+        </ion-label>
+        <ion-input placeholder='' required [(ngModel)]="nnn" name="nnn" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label floating >
+            back
+        </ion-label>
+        <ion-input [(ngModel)]="sss" name="sss" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label floating >
+            token
+        </ion-label>
+        <ion-input [(ngModel)]="token" name="token" type="text"></ion-input>
+    </ion-item>
+
+
+
+    <button ion-button item-right round (click)="savedata()" type="button" name="button">
+        Save
+    </button>
+
+
+    <button ion-button item-right round (click)="showdata()" type="button" name="button">
+        Show
+    </button>
+</form>
+
+
+
+
+
+
+
+</ion-content>
