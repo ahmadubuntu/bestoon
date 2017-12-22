@@ -15,10 +15,6 @@
 
 <ion-content padding>
 
-    <button ion-button item-right round color="danger" (click)="submitlogout()" type="button" name="button" *ngIf="loggedin">
-        ورود
-    </button>
-
     <ion-card *ngIf="!loggedin" dir="rtl">
       <ion-card-header>
         توجه
@@ -65,7 +61,7 @@
 
 
 
-<form class="" action="index.html" method="post">
+<form class="" action="index.html" method="post" *ngIf="false">
 
     <ion-item>
         <ion-label floating >
@@ -101,6 +97,36 @@
 
 
 
+
+
+
+
+<div>
+    <ion-card color="okgo" dir="rtl">
+        <ion-card-header>
+            <h2>
+                جدیدترین اخبار بستون
+            </h2>
+        </ion-card-header>
+    </ion-card>
+
+    <ion-card *ngFor="let new of news" dir="rtl">
+        <ion-card-header>
+            <b>{{ new.fields.title}}</b>
+            <br>
+            {{ new.fields.date }}
+        </ion-card-header>
+        <!--img src="img/nin-live.png"/-->
+        <ion-card-content>
+            {{ new.fields.text }}
+            <ion-list>
+                <ion-item text-wrap>
+                    {{ new.fields.text }}
+                </ion-item>
+            </ion-list>
+        </ion-card-content>
+    </ion-card>
+</div>
 
 
 

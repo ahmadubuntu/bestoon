@@ -21,6 +21,10 @@
     {
         "path": "/accounts/login/",
         "proxyUrl": "http://ahmadubuntu.pythonanywhere.com/accounts/login/"
+    },
+    {
+        "path": "/news/",
+        "proxyUrl": "http://ahmadubuntu.pythonanywhere.com/news/"
     }
 ]
 }

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
 from json import JSONEncoder
 from django.views.decorators.csrf import csrf_exempt
@@ -12,7 +12,7 @@ from django.db.models import Sum, Count
 from django.views.decorators.http import require_POST
 from .whoamiViews import whoami
 from .newsViews import news
-
+from django.core import serializers
 
 @csrf_exempt
 @require_POST
@@ -32,6 +32,28 @@ def submit_expence(request):
     return JsonResponse({
         'status': 'ok',
     }, encoder=JSONEncoder)
+
+
+@csrf_exempt
+@require_POST
+def query_expenses(request):
+    this_token = request.POST['token']
+    num = request.POST.get('num', 10)
+    this_user = get_object_or_404(User, token__token=this_token)
+    expenses = Expense.objects.filter(user=this_user).order_by('-date')[:num]
+    expenses_serialized = serializers.serialize("json", expenses)
+    return JsonResponse(expenses_serialized, encoder=JSONEncoder, safe=False)
+
+
+@csrf_exempt
+@require_POST
+def query_incomes(request):
+    this_token = request.POST['token']
+    num = request.POST.get('num', 10)
+    this_user = get_object_or_404(User, token__token=this_token)
+    incomes = Income.objects.filter(user=this_user).order_by('-date')[:num]
+    incomes_serialized = serializers.serialize("json", incomes)
+    return JsonResponse(incomes_serialized, encoder=JSONEncoder, safe=False)
 
 
 @csrf_exempt

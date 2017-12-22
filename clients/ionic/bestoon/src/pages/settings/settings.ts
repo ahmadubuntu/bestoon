@@ -36,7 +36,10 @@ export class SettingsPage {
     nnn:any;
     private savedata:any;
     private showdata:any;
-
+    private news:any;
+    private newsst:any;
+    //private newsparsed:any=JSON.parse(this.news);
+    private newsparsed:any=this.news;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
                 private generalStat:GeneralstatProvider,
@@ -112,6 +115,16 @@ export class SettingsPage {
     }
 */
 
+
+    ionViewDidEnter(){
+        this.storage.get('token').then(res => {this.token=res;
+            this.generalStat.getNews().subscribe(news => {
+                this.news = news;
+                //console.log(JSON.parse(this.news));
+                this.news=JSON.parse(this.news)
+            });
+        });
+    }
 
 
 }

@@ -69,6 +69,17 @@ export class GeneralstatProvider {
                 .map(res => res.json());
     }
 
+    getNews(){
+        let headers = new Headers();
+        headers.append("Content-Type", "application/x-www-form-urlencoded");
+
+        this.storage.get('token').then(res => {this.token=res});
+        let body = 'token=' + this.token ;
+
+        return this.http.post(this.baseurl+'news/', {headers: headers})
+                .map(res => res.json());
+    }
+
 
     setExpense(AMOUNT,TEXT) {
         //this.storage.get('token').then(res => {this.token=res});
