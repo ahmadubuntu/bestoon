@@ -45,17 +45,23 @@ export class GeneralstatProvider {
         if (this.token){
             this.loggedin = true;
         }
-/*        else{
+        /* else{
             this.loggedin = false
         }
-*/
+        */
 
- }
-// end of constructor
-
-
+    }
+    // end of constructor
 
 
+
+
+    getNews(){
+        let headers = new Headers();
+        headers.append("Content-Type", "application/x-www-form-urlencoded");
+        return this.http.post(this.baseurl+'news/', {headers: headers})
+                .map(res => res.json());
+    }
 
 
     getStat() {
@@ -69,14 +75,27 @@ export class GeneralstatProvider {
                 .map(res => res.json());
     }
 
-    getNews(){
+
+    getLastExpenses() {
         let headers = new Headers();
         headers.append("Content-Type", "application/x-www-form-urlencoded");
 
         this.storage.get('token').then(res => {this.token=res});
         let body = 'token=' + this.token ;
 
-        return this.http.post(this.baseurl+'news/', {headers: headers})
+        return this.http.post(this.baseurl+'q/expenses/', body, {headers: headers})
+                .map(res => res.json());
+    }
+
+
+    getLastIncomes() {
+        let headers = new Headers();
+        headers.append("Content-Type", "application/x-www-form-urlencoded");
+
+        this.storage.get('token').then(res => {this.token=res});
+        let body = 'token=' + this.token ;
+
+        return this.http.post(this.baseurl+'q/incomes/', body, {headers: headers})
                 .map(res => res.json());
     }
 

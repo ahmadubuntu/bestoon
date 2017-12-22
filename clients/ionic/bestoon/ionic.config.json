@@ -25,6 +25,14 @@
     {
         "path": "/news/",
         "proxyUrl": "http://ahmadubuntu.pythonanywhere.com/news/"
+    },
+    {
+        "path": "/q/incomes/",
+        "proxyUrl": "http://ahmadubuntu.pythonanywhere.com/q/incomes/"
+    },
+    {
+        "path": "/q/expenses/",
+        "proxyUrl": "http://ahmadubuntu.pythonanywhere.com/q/expenses/"
     }
 ]
 }

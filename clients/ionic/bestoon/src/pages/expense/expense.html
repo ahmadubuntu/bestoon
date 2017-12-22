@@ -27,4 +27,46 @@
 </form>
 
 
+
+
+
+<ion-card color="okgo" dir="rtl">
+    <ion-card-header>
+        <h2>
+            هزینه‌های قبل
+        </h2>
+    </ion-card-header>
+</ion-card>
+
+
+<ion-list *ngFor="let expense of priviousExpnses" style="margin-right:20px; margin-left:20px" text-wrap >
+  <ion-item-sliding>
+      <ion-item dir="rtl">
+          {{ expense.fields.amount }}
+          تومان برای
+          {{ expense.fields.text }}
+      </ion-item>
+      <ion-item-options (ionSwipe)="edit(expense)" side="right">
+          <button ion-button color="primary" expandable (click)="edit(expense)">
+              <ion-icon name="create"></ion-icon>
+              ویرایش
+          </button>
+      </ion-item-options>
+      <ion-item-options (ionSwipe)="delete(expense)" side="left">
+          <button ion-button color="danger" expandable (click)="delete(expense)">
+              <ion-icon name="trash"></ion-icon>
+              حذف
+          </button>
+      </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+
+
+
+
+
+
+
+
+
 </ion-content>

@@ -47,13 +47,18 @@
             <ion-input placeholder="" clearOnEdit required [(ngModel)]="password" name="password" type="text"></ion-input>
         </ion-item>
         <button ion-button item-right round (click)="submitlogin()" type="submit" name="button">
-            ورود
+            <ion-icon name="log-in">
+                ورود
+            </ion-icon>
+
         </button>
     </form>
 
     <hr>
     <button ion-button item-right round color="danger" (click)="submitlogout()" type="button" name="button" *ngIf="loggedin">
-        خروج
+        <ion-icon name="log-out">
+            خروج
+        </ion-icon>
     </button>
 
 
@@ -104,9 +109,11 @@
 <div>
     <ion-card color="okgo" dir="rtl">
         <ion-card-header>
-            <h2>
-                جدیدترین اخبار بستون
-            </h2>
+            <h3>
+                <ion-icon name="paper">
+                    جدیدترین اخبار بستون
+            </ion-icon>
+            </h3>
         </ion-card-header>
     </ion-card>
 

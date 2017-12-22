@@ -41,4 +41,57 @@
     </button>
 </form>
 
+
+
+<ion-card color="okgo" dir="rtl">
+    <ion-card-header>
+        <h2>
+            درآمدهای قبلی
+        </h2>
+    </ion-card-header>
+</ion-card>
+
+
+
+<!--ion-list *ngFor="let income of priviousIncomes" dir="rtl" style="margin-right:20px; margin-left:20px" text-wrap >
+  <ion-item>
+      {{ income.fields.amount }}
+      تومان از
+      {{ income.fields.text }}
+  </ion-item>
+</ion-list-->
+
+
+
+
+
+
+
+<ion-list *ngFor="let income of priviousIncomes" style="margin-right:20px; margin-left:20px" text-wrap >
+  <ion-item-sliding>
+      <ion-item dir="rtl">
+          {{ income.fields.amount }}
+          تومان از
+          {{ income.fields.text }}
+      </ion-item>
+      <ion-item-options (ionSwipe)="edit(income)" side="right">
+          <button ion-button color="primary" expandable (click)="edit(income)">
+              <ion-icon name="create"></ion-icon>
+              ویرایش
+          </button>
+      </ion-item-options>
+      <ion-item-options (ionSwipe)="delete(income)" side="left">
+          <button ion-button color="danger" expandable (click)="delete(income)">
+              <ion-icon name="trash"></ion-icon>
+              حذف
+          </button>
+      </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+
+
+
+
+
+
 </ion-content>
