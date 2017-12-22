@@ -3,9 +3,13 @@ from django.http import JsonResponse
 from json import JSONEncoder
 from django.views.decorators.csrf import csrf_exempt
 from web.models import User, Token, Expense, Income
+from django.views.decorators.http import require_POST
+from .utils import RateLimited, get_client_ip, grecaptcha_verify
 
 
 @csrf_exempt
+@require_POST
+#@RateLimited(2)
 def login(request):
     if ('username' in request.POST) and ('password' in request.POST):
         username = request.POST['username']

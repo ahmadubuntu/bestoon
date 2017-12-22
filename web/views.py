@@ -2,16 +2,20 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from json import JSONEncoder
 from django.views.decorators.csrf import csrf_exempt
-from web.models import User, Token, Expense, Income, Passwordresetcodes
+from .models import User, Token, Expense, Income, Passwordresetcodes
 from datetime import datetime
 from .registerViews import register
 from .loginViews import login
 from django.conf import settings
 from django.db.models import Sum, Count
 # Create your views here.
+from django.views.decorators.http import require_POST
+from .whoamiViews import whoami
+from .newsViews import news
 
 
 @csrf_exempt
+@require_POST
 def submit_expence(request):
     """user submits an expence"""
 
@@ -20,6 +24,8 @@ def submit_expence(request):
     this_user = User.objects.filter(token__token=this_token).get()
     if 'date' not in request.POST:
         date = datetime.now()
+    else:
+        date = request.POST['date']
     Expense.objects.create(user=this_user, amount=request.POST['amount'],
                            text=request.POST['text'], date=date)
 
@@ -29,6 +35,7 @@ def submit_expence(request):
 
 
 @csrf_exempt
+@require_POST
 def generalstat(request):
     #TODO: should get a valid duration (from-to), if not, use 1 month
     #TODO: is the TOKEN valid
@@ -49,6 +56,7 @@ def index(request):
 
 
 @csrf_exempt
+@require_POST
 def submit_income(request):
     """user submits an income"""
 
@@ -58,6 +66,8 @@ def submit_income(request):
     this_user = User.objects.filter(token__token=this_token).get()
     if 'date' not in request.POST:
         date = datetime.now()
+    else:
+        date = request.POST['date']
     Income.objects.create(user=this_user, amount=request.POST['amount'],
                           text=request.POST['text'], date=date)
 

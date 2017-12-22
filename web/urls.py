@@ -8,7 +8,9 @@ urlpatterns = [
     url(r'^q/generalstat/$', views.generalstat, name='generalstat'),
     url(r'^register/$', views.register, name='register'),
     url(r'^accounts/register/$', views.register, name='register'),
+    url(r'^accounts/whoami/$', views.whoami, name='whoami'),
     url(r'^accounts/login/$', views.login, name='login'),
-    url(r'^$', views.index, name='index'),
     url(r'^logout/$', logout, {'next_page': '/'}, name='logout'),
+    url(r'^news/$', views.news, name='news'),
+    url(r'^$', views.index, name='index'),
 ]
