@@ -38,8 +38,8 @@
     </ion-card-header>
 </ion-card>
 
-
-<ion-list *ngFor="let expense of priviousExpnses" style="margin-right:20px; margin-left:20px" text-wrap >
+<div style="border:4px solid black">
+<ion-list class="animated fadeInLeft" *ngFor="let expense of priviousExpnses" style="margin-right:20px; margin-left:20px" text-wrap >
   <ion-item-sliding>
       <ion-item dir="rtl">
           {{ expense.fields.amount }}
@@ -61,7 +61,7 @@
   </ion-item-sliding>
 </ion-list>
 
-
+</div>
 
 
 
